@@ -5,7 +5,7 @@
   <button @click="handleClick">Click Me</button>
   <br>
   <br>
-  <div v-if="showModal">
+  <teleport to=".modals" v-if="showModal">
     <Modal header="Header string" :header2="header2" :text="text" :theme="theme" @close="toggleModal">
       <template v-slot:links>
         <a href="#">Sign up Now</a>
@@ -15,8 +15,9 @@
       <h1>Heading 1 via Slot</h1>
       <p>Paragraph via Slot</p>
     </Modal>
-  </div>
-  <div v-if="showModalTwo">
+  </teleport>
+  <!--Teleport works with classes and ids-->
+  <teleport to=".modals" v-if="showModalTwo">
     <Modal @close="toggleModalTwo">
       <h1>This is a different Modal</h1>
       <p>Very different</p>
@@ -24,7 +25,7 @@
         <a href="https://www.google.com/search?client=firefox-b-d&sca_esv=f377f8634278135a&sxsrf=ADLYWIKCbnB0HhgEvhdnyO36ovmnw28_Rw:1729293680659&q=puppies&udm=2&fbs=AEQNm0CFDpRHaDHkXm_YXueHTfHtrgIXUKlluACpCix4T5ZoUSz6e3GWv4zN_09JkP2cR-DwqD-ER1CSuTjXzdXNKT0Wma9mNyum3oWLzhs1xt8u5N_8f3uUgStDs9UpKFAFlFGSOMoqQM9HMiNsP9mioHh2RXyquw6CV17dtB6pod7Wqwuaoj8KLwF-5ybcxBC-9vVePghwqzsfsWfHCa5dRS4yxLs8KA&sa=X&ved=2ahUKEwi_7rD8iJmJAxX2mIkEHcfmBUUQtKgLegQIFBAB&biw=1920&bih=941&dpr=1" target="_blank"> Puppies!</a>
       </template>
     </Modal>
-  </div>
+  </teleport>
   <button @click.shift="toggleModal">Shift Open Modal</button>
   <button @click="toggleModalTwo">Open Modal 2</button>
   
@@ -71,7 +72,7 @@ export default {
 <style>
 /* these styles are global, unless use scoped, but then it will break the #app style */
 /* to apply global styles, cna use global.css */
-#app {
+#app, .modals {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
