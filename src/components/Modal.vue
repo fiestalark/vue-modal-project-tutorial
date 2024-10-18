@@ -1,11 +1,21 @@
 <template>
     <div class="backdrop">
-        <div class="modal">
-            <h1>Modal Title</h1>
-            <p>Modal Content</p>
+        <div class="modal" :class="{sale: theme === 'sale'}">
+            <h1>{{ header }}</h1>
+            <h2>{{ header2 }}</h2>
+            <p>{{ text }}</p>
         </div>
     </div>
 </template>
+
+<script>
+
+
+export default {
+    props: ['header', 'text', 'header2', 'theme']
+}
+</script>
+
 
 <!--Adding scoped means it will only apply to this modal; 
 there is a slight performance hit when you do this if you do it a lot-->
@@ -28,5 +38,12 @@ there is a slight performance hit when you do this if you do it a lot-->
         color: #03cfb4;
         border: none;
         padding: 0;
+    }
+    .modal.sale {
+        background: crimson;
+        color: white;
+    }
+    .modal.sale h1 {
+        color: white;
     }
 </style>
