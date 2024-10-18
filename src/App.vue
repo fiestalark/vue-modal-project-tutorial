@@ -1,8 +1,15 @@
 <template>
   <h1>{{ title }}</h1>
+  <p>Welcome</p>
   <input type="text" ref="name">
   <button @click="handleClick">Click Me</button>
-  <Modal header="Header string" :header2="header2" :text="text" :theme="theme" />
+  <br>
+  <br>
+  <div v-if="showModal">
+    <Modal header="Header string" :header2="header2" :text="text" :theme="theme" @close="toggleModal"/>
+  </div>
+  <button @click="toggleModal">Open Modal</button>
+  
 </template>
 
 <script>
@@ -16,7 +23,8 @@ export default {
       title: 'My First Vue App :)',
       header2: "Header Too",
       text: 'string two',
-      theme: 'sale'
+      theme: 'sale',
+      showModal: false
     }
   },
   methods: {
@@ -25,6 +33,9 @@ export default {
       this.$refs.name.classList.add('active')
       // To focus on this field in DOM
       this.$refs.name.focus()
+    },
+    toggleModal() {
+      this.showModal = !this.showModal
     }
   }
 }
