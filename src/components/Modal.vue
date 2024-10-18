@@ -1,5 +1,6 @@
 <template>
-    <div class="backdrop" @click="closeModal">
+<!-- .self modifier on click only closes when click on backdrop and not child elements -->
+    <div class="backdrop" @click.self="closeModal">
         <div class="modal" :class="{sale: theme === 'sale'}">
             <h1>{{ header }}</h1>
             <h2>{{ header2 }}</h2>

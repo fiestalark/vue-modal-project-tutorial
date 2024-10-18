@@ -8,7 +8,7 @@
   <div v-if="showModal">
     <Modal header="Header string" :header2="header2" :text="text" :theme="theme" @close="toggleModal"/>
   </div>
-  <button @click="toggleModal">Open Modal</button>
+  <button @click.shift="toggleModal">Shift Open Modal</button>
   
 </template>
 
