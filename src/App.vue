@@ -2,12 +2,15 @@
   <h1>{{ title }}</h1>
   <input type="text" ref="name">
   <button @click="handleClick">Click Me</button>
+  <Modal />
 </template>
 
 <script>
+import Modal from './components/Modal.vue'
 
 export default {
   name: 'App',
+  components: { Modal },
   data() {
     return {
       title: 'My First Vue App :)'
@@ -25,7 +28,8 @@ export default {
 </script>
 
 <style>
-/* these styles are global */
+/* these styles are global, unless use scoped, but then it will break the #app style */
+/* to apply global styles, cna use global.css */
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
