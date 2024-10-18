@@ -5,6 +5,11 @@
             <h1>{{ header }}</h1>
             <h2>{{ header2 }}</h2>
             <p>{{ text }}</p>
+            <slot>Default content</slot>
+            <div class="actions">
+                <!--Named slots-->
+                <slot name="links"></slot>
+            </div>
         </div>
     </div>
 </template>
@@ -26,7 +31,7 @@ export default {
 
 <!--Adding scoped means it will only apply to this modal; 
 there is a slight performance hit when you do this if you do it a lot-->
-<style scoped>
+<style>
     .modal {
         width: 400px;
         padding: 20px;
@@ -51,6 +56,24 @@ there is a slight performance hit when you do this if you do it a lot-->
         color: white;
     }
     .modal.sale h1 {
+        color: white;
+    }
+    .modal .actions {
+        text-align: center;
+        margin: 30px 0 10px 0;
+    }
+    .modal .actions a {
+        color: #333;
+        padding: 8px;
+        border: 1px solid #eee;
+        border-radius: 4px;
+        text-decoration: none;
+        margin: 10px;
+    }
+    .modal.sale .actions {
+        color: white;
+    }
+    .modal.sale .actions a {
         color: white;
     }
 </style>

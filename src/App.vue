@@ -6,7 +6,15 @@
   <br>
   <br>
   <div v-if="showModal">
-    <Modal header="Header string" :header2="header2" :text="text" :theme="theme" @close="toggleModal"/>
+    <Modal header="Header string" :header2="header2" :text="text" :theme="theme" @close="toggleModal">
+      <template v-slot:links>
+        <a href="#">Sign up Now</a>
+        <a href="#">More info</a>
+      </template>
+      <!--Default content only shows if dont pass anything in the slot-->
+      <h1>Heading 1 via Slot</h1>
+      <p>Paragraph via Slot</p>
+    </Modal>
   </div>
   <button @click.shift="toggleModal">Shift Open Modal</button>
   
